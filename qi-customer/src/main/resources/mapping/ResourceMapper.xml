@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="qi.shen.dao.ResourceDao">
+
+    <resultMap id="BaseResultMap" type="qi.shen.entity.Resource">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="parent_id" property="parentId" jdbcType="VARCHAR" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="type" property="type" jdbcType="INTEGER" />
+        <result column="link" property="link" jdbcType="VARCHAR" />
+        <result column="idx" property="idx" jdbcType="INTEGER" />
+        <result column="is_show" property="isShow" jdbcType="INTEGER" />
+        <result column="permission_code" property="permissionCode" jdbcType="VARCHAR" />
+        <result column="remark" property="remark" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        a.id, a.parent_id, a.name, a.type, a.idx, a.is_show, a.permission_code,a.remark,a.create_time
+    </sql>
+
+    <select id="findAll" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List"/>
+        from t_resource a
+    </select>
+
+</mapper>
