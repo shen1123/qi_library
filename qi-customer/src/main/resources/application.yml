@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.1.36:3306/libary
+    username: dev
+    password: dev
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      max-active: 20
+      max-wait: 60000
+      min-idle: 1
+      initial-size: 1
+      test-on-borrow: true
+      test-on-return: true
+server:
+  port: 8000
+mybatis:
+  mapper-locations: classpath*:mapping/*Mapper.xml # 对应xml路径
+  type-aliases-package: qi.shen.entity # 对应实体路径
